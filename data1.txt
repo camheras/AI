@@ -1,1 +1,1 @@
-[{"poid":60,"taille":170,"adulte":1}]
+[{"id_sceance":1,"lieu":"salle de bain","duree":20,"date":"2018-04-11"}]
