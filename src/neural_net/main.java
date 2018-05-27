@@ -11,44 +11,58 @@ public class main {
 		double[] val_node1 = { 0.5 };
 		double[] val_node2 = { 1 };
 		double[] val_node3 = { 0 };
-		double[] weight_node1 = { 3 };
-		double[] weight_node2 = { 2 };
-		double[] weight_node3 = { 1 };
+		double weight_node1 = 3;
+		double weight_node2 = 2;
+		double weight_node3 = 1;
 
 		Node node1 = new Node();
-		Node node2 = new Node(val_node1, weight_node1, node1);
-		Node node3 = new Node(val_node2, weight_node2, node1);
-		Node node4 = new Node(val_node3, weight_node3, node1);
-		
+		Node node2 = new Node(weight_node1, val_node1, node1);
+		Node node3 = new Node(weight_node2, val_node2, node1);
+		Node node4 = new Node(weight_node3, val_node3, node1);
+
 		nodes.add(node1);
 		nodes.add(node2);
 		nodes.add(node3);
 		nodes.add(node4);
-		
+
 		for (int i = 0; i < nodes.size(); i++) {
-			if (nodes.get(i).getConnexion() == null) {
+			if (nodes.get(i).getConnexion() != null) {
 				System.out.println("lol");
 			}
 		}
 
-		calculateSums(nodes);
+		System.out.println(calculateSums(nodes));
 	}
 
 	public static double sigmoid(double value) {
 		return 1 / (1 + Math.exp(-value));
+		
 	}
 
 	public static double[] calculateSums(ArrayList<Node> nodes) {
 		double[] results = null;
 		double[] calcWeights = null;
 		for (int i = 0; i < nodes.size(); i++) {
-			for (int j = 0; i < nodes.get(i).getWeight().length; j++) {
-				calcWeights[j] = nodes.get(i).getWeight()[j];
+
+			if (nodes.get(i).getWeight() != null) {
+				for (int j = 0; j < nodes.get(i).getWeight().length; j++) {
+					if (nodes.get(i).getWeight() != null && nodes.get(i).getValue() != 0) {
+						System.out.println("i : " + i + " j : " + j);
+						System.out.println(
+								"weight : " + nodes.get(i).getWeight()[j] + " value : " + nodes.get(i).getValue());
+ 						calcWeights[j] = nodes.get(i).getWeight()[j]*nodes.get(i).getValue();
+
+					}
+				}
+				//results[i] = calcWeights[i];
+			}else {
+				System.out.println("pas de tableau");
 			}
-			results[i] = nodes.get(i).getValue();
+
+			
 		}
 
-		return null;
+		return calcWeights;
 
 	}
 

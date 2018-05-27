@@ -7,15 +7,16 @@ public class Node {
 	private double  value;
 	private double[] weights;
 
-	public Node(double[] values, double[] weights, Node... connexion) { // layers
+	public Node(double value, double[] weights, Node... connexion) { // layers
 		this.weights = weights;
 		this.connexion = connexion;
-		this.values = values;
+		this.value = value;
 	}
 
 	public Node() { // pour la node de fin
 		this.connexion = null;
 		this.values = null;
+		this.weights = null;
 	}
 
 	public double getValue() {
@@ -32,7 +33,7 @@ public class Node {
 
 	private void setValue(double value) {
 		this.value = value;
-		//marche
+
 	}
 
 }
