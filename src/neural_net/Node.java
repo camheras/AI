@@ -32,6 +32,7 @@ public class Node {
 
 	private void setValue(double value) {
 		this.value = value;
+		//marche
 	}
 
 }
