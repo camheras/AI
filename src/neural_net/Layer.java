@@ -5,7 +5,8 @@ public class Layer {
 	private double[] weights;
 
 	public Layer(double[] weights) {
-		this.nbNode = weights.length;
+		this.nbNode = weights.length
+				;
 		this.weights = weights;
 	}
 }
